@@ -3,7 +3,11 @@
 
 int _printf(const char *format, ...);
 
-
+typedef struct formats
+{
+	char specifier;
+	void (*func)(va_list);
+} form;
 
 
 
