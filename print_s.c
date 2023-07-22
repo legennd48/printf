@@ -7,6 +7,7 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdarg.h>
+
 int print_s(va_list args)
 {
 	int i = 0, count = 0;
@@ -16,6 +17,7 @@ int print_s(va_list args)
 
 	if (s == NULL)
 		s = "(null)";
+
 
 	if (s[0] == '\0')
 	{
