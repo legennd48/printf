@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 		{'s', print_s},
 		{'d', print_d},
 		{'i', print_i}, /* added i and d */
+		{'b', print_b}, /* added b */
 		{0, NULL}
 	};
 
