@@ -1,8 +1,9 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
+#include <stdarg.h>
+#include <stdio.h>
 
 int _printf(const char *format, ...);
-int _putchar(char c);
 
 /**
  * struct format_specifier - structure defining data type of format specifier
@@ -16,10 +17,15 @@ int _putchar(char c);
 typedef struct format_specifier
 {
 	char type;
-	void (*func)(va_list);
+	int (*func)(va_list);
 } specifier;
 
 
-int print_s(va_list args);
+int _putchar(char c);
+int print_c(va_list arg);
+int print_s(va_list arg);
+int print_num(int num);
+int print_i(va_list args);
+int print_d(va_list args);
 
 #endif
