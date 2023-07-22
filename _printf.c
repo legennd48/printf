@@ -13,8 +13,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, j, count = 0;
 	specifier id[] = {
-		{'c', print_c},
-		{'s', print_s},
+		{'c', print_c}, {'o', print_o},
+		{'s', print_s}, {'u', print_u}, /* added u and o */
 		{'d', print_d},
 		{'i', print_i}, /* added i and d */
 		{'b', print_b}, /* added b */
@@ -34,8 +34,7 @@ int _printf(const char *format, ...)
 			{
 				if (id[j].type == format[i])
 				{
-					id[j].func(args);
-					count++;
+					count += id[j].func(args); /* corrected count */
 				}
 				j++;
 			}

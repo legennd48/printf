@@ -9,7 +9,7 @@ int _printf(const char *format, ...);
  * struct format_specifier - structure defining data type of format specifier
  * and the corresponding function
  * @type: the format character
- * @func: function pointer of thr corresponfing function
+ * @func: function pointer of the corresponfing function
  *
  * Description:this helps to select the function
  * that matches the provided specifier
@@ -28,5 +28,6 @@ int print_s(va_list args);
 int print_num(int num);
 int print_i(va_list args);
 int print_d(va_list args);
-
+int print_u(va_list args);
+int print_o(va_list arg);
 #endif
