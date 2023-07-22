@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 				if (id[j].type == format[i])
 				{
 					count += id[j].func(args); /* corrected count */
-					break;
 				}
 				j++;
 			}
@@ -56,6 +55,6 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	/*_putchar('\n');*/
+	_putchar('\n');
 	return (count);
 }
