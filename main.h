@@ -2,7 +2,7 @@
 #define _MAIN_H_
 
 int _printf(const char *format, ...);
-
+int _putchar(char c);
 
 /**
  * struct format_specifier - structure defining data type of format specifier
@@ -20,7 +20,6 @@ typedef struct format_specifier
 } specifier;
 
 
-
-
+int print_s(va_list args);
 
 #endif
