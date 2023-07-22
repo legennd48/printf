@@ -9,34 +9,34 @@
 
 int print_u(va_list args)
 {
-    unsigned int n = va_arg(args, unsigned int);
-    int count = 0;
-    unsigned int num = n, divisor = 1, digit;
+	unsigned int n = va_arg(args, unsigned int);
+	int count = 0;
+	unsigned int num = n, divisor = 1, digit;
 
-    /* Handle the special case of num being 0 */
-    if (num == 0)
-    {
-        count += _putchar('0');
-        return count;
-    }
+	/* Handle the special case of num being 0 */
+	if (num == 0)
+	{
+		count += _putchar('0');
+		return (count);
+	}
 
-    /* Calculate the number of digits in the unsigned integer */
-    while (num / 10 != 0)
-    {
-        divisor *= 10;
-        num /= 10;
-    }
+	/* Calculate the number of digits in the unsigned integer */
+	while (num / 10 != 0)
+	{
+		divisor *= 10;
+		num /= 10;
+	}
 
-    /* Print the digits of the unsigned integer */
-    while (divisor > 0)
-    {
-        digit = n / divisor;
-        count += _putchar(digit + '0');
-        n = n - (digit * divisor);
-        divisor /= 10;
-    }
+	/* Print the digits of the unsigned integer */
+	while (divisor > 0)
+	{
+		digit = n / divisor;
+		count += _putchar(digit + '0');
+		n = n - (digit * divisor);
+		divisor /= 10;
+	}
 
-    return count;
+	return (count);
 }
 
 /**
@@ -54,7 +54,7 @@ int print_o(va_list args)
 	if (num == 0)
 	{
 		count += _putchar('0');
-		return count;
+		return (count);
 	}
 
 	/* Calculate the number of octal digits */
@@ -68,7 +68,7 @@ int print_o(va_list args)
 	/* Allocate memory for the holder to store octal digits */
 	holder = malloc(count * sizeof(int));
 	if (holder == NULL) /* Check if memory allocation is successful */
-		return -1;
+		return (-1);
 
 	/* Store the octal digits in the holder */
 	for (i = 0; i < count; i++)
@@ -86,5 +86,5 @@ int print_o(va_list args)
 	/* Free the dynamically allocated memory */
 	free(holder);
 
-	return count;
+	return (count);
 }
