@@ -45,7 +45,13 @@ int print_i(va_list args)
 
 int print_num(int num)
 {
-	int rev_num = 0, count = 0;
+	int count = 0; /* rev_num = 0, */
+
+	if (num < 0)
+	{
+		count += _putchar('-');
+		num = -num;
+	}
 
 	if (num == 0)
 	{
@@ -53,19 +59,27 @@ int print_num(int num)
 		count += _putchar('0');
 		return (count);
 	}
-	/* Reverse the digits of the number */
-	while (num != 0)
-	{
-		rev_num = rev_num * 10 + num % 10;
-		num /= 10;
-	}
-	/* Print each digit by reversing the reversed number */
-	while (rev_num != 0)
-	{
-		/* Print the digit */
-		count += _putchar('0' + rev_num % 10);
-		rev_num /= 10;
-	}
 
+	/* Recursively print digits from left to right */
+	if (num / 10 != 0)
+		count += print_num(num / 10);
+
+	count += _putchar('0' + num % 10);
+
+/*
+*	 Reverse the digits of the number
+*	while (num != 0)
+*	{
+*		rev_num = rev_num * 10 + num % 10;
+*		num /= 10;
+*	}
+*	 Print each digit by reversing the reversed number
+*	while (rev_num != 0)
+*	{
+*		 Print the digit
+*		count += _putchar('0' + rev_num % 10);
+*		rev_num /= 10;
+*	}
+*/
 	return (count);
 }
