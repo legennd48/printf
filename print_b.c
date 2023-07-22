@@ -8,8 +8,8 @@
 #include <stdarg.h>
 int print_b(va_list args)
 {
-	unsigned int num, rev_bin = 0;
-	int count = 0;
+	unsigned int num, bit_mask;
+	int i, count = 0, num_of_bits;
 
 	num = va_arg(args, unsigned int);
 	/* Sorting out the 'zero' edge case */
@@ -18,17 +18,20 @@ int print_b(va_list args)
 		count += _putchar('0');
 		return (count);
 	}
-	/*Converting the decimal to its reversed binary form */
-	while (num)
+	/* Getting the number of bits of an unsigned int */
+	num_of_bits = sizeof(unsigned int) * 8;
+	/* Creating a bit mask */
+	bit_mask = 1 << (num_of_bits - 1);
+	/* Printing each bit from left to right */
+	for (i = 0; i < num_of_bits; i++)
 	{
-		rev_bin = (rev_bin * 10) + (num % 2);
-		num /= num / 2;
-	}
-	/* Reversing the reversed binary to obtain binary */
-	while (rev_bin)
-	{
-		count += _putchar('0' + (rev_bin % 10));
-		rev_bin /= 10;
+		/*Bitwise AND operation to check current bit*/
+		if (num & bit_mask)
+			count += _putchar('1');
+		else
+			count += _putchar('0');
+		/* Shift bit_mask to the right*/
+		bit_mask = bit_mask >> 1;
 	}
 	return (count);
 }
