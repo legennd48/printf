@@ -11,16 +11,16 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, j, count = 0;
+	int i = 0, j, count = 0;
 	specifier id[] = {
 		{'c', print_c},
 		{'s', print_s},
+		{'d', print_d},
+		{'i', print_i}, /* added i and d */
 		{0, NULL}
 	};
 
 	va_start(args, format);
-
-	i = 0;
 
 	while (format != NULL && format[i] != '\0')
 	{
