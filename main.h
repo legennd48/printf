@@ -1,5 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
+#include <stdarg.h>
+#include <stdio.h>
 
 int _printf(const char *format, ...);
 
@@ -16,11 +18,12 @@ int _printf(const char *format, ...);
 typedef struct format_specifier
 {
 	char type;
-	void (*func)(va_list);
+	int (*func)(va_list);
 } specifier;
 
-
-
+int _putchar(char c);
+int print_c(va_list arg);
+int print_s(va_list arg);
 
 
 #endif

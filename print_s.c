@@ -17,7 +17,7 @@ int print_s(va_list args)
 	if (s == NULL)
 		s = "(null)";
 
-	if (s == '\0')
+	if (s[0] == '\0')
 	{
 		_putchar('\n');
 		return (-1);
@@ -26,9 +26,10 @@ int print_s(va_list args)
 	while (s[i])
 	{
 		_putchar(s[i]);
-		count++
+		count++;
 		i++;
 	}
-	_putchar('\n');
+
+	/*_putchar('\n');*/
 	return (count);
 }
