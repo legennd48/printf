@@ -22,8 +22,9 @@ typedef struct format_specifier
 
 
 int _putchar(char c);
-int print_c(va_list arg);
-int print_s(va_list arg);
+int print_b(va_list args);
+int print_c(va_list args);
+int print_s(va_list args);
 int print_num(int num);
 int print_i(va_list args);
 int print_d(va_list args);
