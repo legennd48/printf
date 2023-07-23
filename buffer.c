@@ -26,7 +26,7 @@ char *make_buffer(void)
  * @args: va_list argument
  */
 
-void putstring(char *buffer, int lent, va_list args)
+void putstring(char *buffer, int lent)
 {
 	char *temp;
 
@@ -35,5 +35,23 @@ void putstring(char *buffer, int lent, va_list args)
 	write(1, temp, lent); /* just like putchar */
 
 	free(temp);
+}
 
+
+/**
+*_strlen - returns the length of a string
+*@s: string to be checked
+*Return: length of string
+*/
+
+int _strlen(char *s)
+{
+        int lent = 0;
+
+        while (*s != '\0')
+        {
+                s++;
+                lent++;
+        }
+        return (lent);
 }
