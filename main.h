@@ -20,7 +20,7 @@ typedef struct format_specifier
 	int (*func)(va_list);
 } specifier;
 
-
+int _strlen(char *s);
 int _putchar(char c);
 int print_b(va_list args);
 int print_c(va_list args);
@@ -30,4 +30,6 @@ int print_i(va_list args);
 int print_d(va_list args);
 int print_u(va_list args);
 int print_o(va_list arg);
+char *make_buffer(void);
+void putstring(char *buffer, int lent);
 #endif

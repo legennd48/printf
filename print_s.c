@@ -18,14 +18,7 @@ int print_s(va_list args)
 	if (s == NULL)
 		s = "(null)";
 
-
-	if (s[0] == '\0')
-	{
-		_putchar('\n');
-		return (-1);
-	}
-
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		_putchar(s[i]);
 		count++;
