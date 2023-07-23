@@ -19,7 +19,7 @@ typedef struct format_specifier
 	char type;
 	int (*func)(va_list);
 } specifier;
-
+int print_R(va_list args);
 int _strlen(char *s);
 int _putchar(char c);
 int print_b(va_list args);
