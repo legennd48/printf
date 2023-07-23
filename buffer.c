@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -30,7 +32,7 @@ void putstring(char *buffer, int lent)
 {
 	char *temp;
 
-	temp = reallocc(buffer, lent); /* shaves away excess memory */
+	temp = realloc(buffer, lent); /* shaves away excess memory */
 
 	write(1, temp, lent); /* just like putchar */
 
