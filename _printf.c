@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 		{'c', print_c}, {'o', print_o},
 		{'s', print_s}, {'u', print_u}, /* added u and o */
 		{'d', print_d}, {'i', print_i}, /* added i and d */
+		{'x', print_x}, {'X', print_X}, /* added x and X */
 		{'b', print_b}, {0, NULL}
 	};
 	va_start(args, format);

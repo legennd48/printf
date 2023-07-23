@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * make_buff - makes a buffer to hold strings temporarily until the are
+ * make_buffer - makes a buffer to hold strings temporarily until they are
  * ready for printing
  * Return: pointer to new buffer
  */
@@ -25,7 +25,6 @@ char *make_buffer(void)
  * putstring - takes a pointer to buffer as argument, prints and frees it
  * @buffer: buffer argumen that holds printables
  * @lent: lenght of the string to be printed
- * @args: va_list argument
  */
 
 void putstring(char *buffer, int lent)
@@ -48,12 +47,12 @@ void putstring(char *buffer, int lent)
 
 int _strlen(char *s)
 {
-        int lent = 0;
+	int lent = 0;
 
-        while (*s != '\0')
-        {
-                s++;
-                lent++;
-        }
-        return (lent);
+	while (*s != '\0')
+	{
+		s++;
+		lent++;
+	}
+	return (lent);
 }
