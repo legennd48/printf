@@ -35,8 +35,6 @@ int _printf(const char *format, ...)
 			{
 				if (id[j].type == format[i])
 					count += id[j].func(args);
-				if (id[j].type == 0)
-					count += print_k(args);
 			}
 		}
 		else

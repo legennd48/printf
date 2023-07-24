@@ -9,12 +9,14 @@
  * @args: Argument list containing the string to be encrypted
  * Return: Number of characters printed
  */
+
 int print_R(va_list args)
 {
-	int count = 0, i;
-	char *str, *r13, *null = "(null)";
+	int i, j, flag = 0, count = 0;
+	char *str = va_arg(args, char *), *null = "(null)";
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char r13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	str = va_arg(args, char *);
 	if (str == NULL)
 	{
 		for (i = 0; null[i]; i++)
@@ -24,29 +26,23 @@ int print_R(va_list args)
 		}
 		return (count);
 	}
-	else if (str[0] == '\0')
-		return (count);
-	r13 = malloc(sizeof(char) * (_strlen(str) + 1));
-	if (r13 == NULL)
-		return (0);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		for (j = 0; alpha[j] != '\0'; j++)
 		{
-			r13[i] = str[i] + 13;
-			if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
-				r13[i] -= 26;
+			if (str[i] == alpha[j])
+			{
+				_putchar(r13[j]);
+				count++;
+				flag = 1;
+			}
 		}
-		else
-			r13[i] = str[i];
+		if (flag == 0)
+		{
+			_putchar(str[i]);
+			count++;
+		}
 	}
-	r13[i] = '\0';
-	count = 0;
-	while (r13[count])
-	{
-		_putchar(r13[count]);
-		count++;
-	}
-	free(r13);
 	return (count);
 }
