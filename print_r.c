@@ -34,5 +34,6 @@ int print_r(va_list args)
 
 	s[count] = '\0';
 	putstring(s, count);
+	free(s);
 	return (count);
 }
