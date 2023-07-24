@@ -38,4 +38,5 @@ char *make_buffer(void);
 char *int_to_binary(unsigned int num);
 void putstring(char *buffer, int lent);
 int print_r(va_list args);
+int print_k(va_list args);
 #endif
