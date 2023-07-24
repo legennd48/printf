@@ -36,27 +36,3 @@ int print_r(va_list args)
 	putstring(s, count);
 	return (count);
 }
-/*
- * this one works too. just decided to put buffer to use
- *	s = va_arg(args, char *);
- *	if (s == NULL)
- *	{
- *		while (*n)
- *		{
- *			_putchar(*n);
- *			count++;
- *			n++;
- *		}
- *		return (count);
- *	}
- *
- *	lent = _strlen(s);
- *	for (i = lent - 1; i >= 0; i--)
- *	{
- *		_putchar(s[i]);
- *		count++;
- *	}
- *
- *	return (count);
- *}
- */
