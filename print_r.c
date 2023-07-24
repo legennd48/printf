@@ -4,7 +4,7 @@
 #include <stdlib.h>
 /**
  * print_r - prints a string in reverse
- * args: va_list argument
+ * @args: va_list argument
  * Return: number or chars printed
  */
 
