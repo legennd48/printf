@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 		{'c', print_c}, {'o', print_o}, {'s', print_s}, {'u', print_u},
 		{'d', print_d}, {'i', print_i}, {'x', print_x}, {'X', print_X},
 		{'S', print_S}, {'b', print_b}, {'R', print_R}, {'r', print_r}, {0, NULL} };
+
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0')
 	    || (format[0] == '%' && format[1] == ' '))
@@ -30,12 +31,12 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				count++;
 			}
-			j = 0;
-			while (id[j].type != 0)
+			for (j = 0; id[j].type != 0; j++)
 			{
 				if (id[j].type == format[i])
 					count += id[j].func(args);
-				j++;
+				if (id[j].type == 0)
+					count += print_k(args);
 			}
 		}
 		else
