@@ -8,30 +8,38 @@
 #include <stdarg.h>
 int print_b(va_list args)
 {
-	unsigned int num, bit_mask;
-	int i, count = 0, num_of_bits;
+	unsigned int num;
+	int i, count = 0;
+	char *binary_str;
 
 	num = va_arg(args, unsigned int);
-	/* Sorting out the 'zero' edge case */
-	if (!num)
-	{
-		count += _putchar('0');
-		return (count);
-	}
-	/* Getting the number of bits of an unsigned int */
-	num_of_bits = sizeof(unsigned int) * 8;
-	/* Creating a bit mask */
-	bit_mask = 1 << (num_of_bits - 1);
-	/* Printing each bit from left to right */
-	for (i = 0; i < num_of_bits; i++)
-	{
-		/*Bitwise AND operation to check current bit*/
-		if (num & bit_mask)
-			count += _putchar('1');
-		else
-			count += _putchar('0');
-		/* Shift bit_mask to the right*/
-		bit_mask = bit_mask >> 1;
-	}
+	binary_str = int_to_binary(num);
+	for (i = 0; binary_str[i]; i++)
+		count += _putchar(binary_str[i]);
 	return (count);
 }
+
+/**
+ * int_to_binary - converts int to binary
+ * @num: an unsigned int
+ *
+ * Return: binary string on Success
+ */
+char *int_to_binary(unsigned int num)
+{
+	static char binary[33];
+	int i, j = 0;
+
+	for (i = 31; i >= 0; i--)
+	{
+		if (num & (1u << i))
+			binary[j++] = '1';
+		else if (j > 0)
+			binary[j++] = '0';
+	}
+	if (j == 0)
+		binary[j++] = '0';
+	binary[j] = '\0';
+	return (binary);
+}
+
