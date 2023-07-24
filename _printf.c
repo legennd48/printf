@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		{'S', print_S}, {'b', print_b}, {0, NULL}, {'R', print_R}
 	};
 	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || (format[0] == '%' && format[1] == '\0') || (format[0] == '%' && format[1] == ' '))
 		return (-1);
 	while (format != NULL && format[i] != '\0')
 	{
@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 					count += id[j].func(args);
 				j++;
 			}
+
 		}
 		else
 		{
