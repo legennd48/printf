@@ -21,20 +21,15 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0')
 	    || (format[0] == '%' && format[1] == ' '))
 		return (-1);
-Here:
 	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			i += 1;
 			if (format[i] == '%')
-				count += _putchar('%');
-			else if (_strchr("cosudixXSbRr", format[i]) == NULL)
 			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
-				i += 1;
-				goto Here;
+				_putchar('%');
+				count++;
 			}
 			for (j = 0; id[j].type != 0; j++)
 			{
@@ -43,7 +38,10 @@ Here:
 			}
 		}
 		else
-			count += _putchar(format[i]);
+		{
+			_putchar(format[i]);
+			count++;
+		}
 		i++;
 	}
 	va_end(args);

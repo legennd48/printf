@@ -31,13 +31,13 @@ char *make_buffer(void)
 
 void putstring(char *buffer, int lent)
 {
-	/*char *temp;*/
+	char *temp;
 
-	/*temp = realloc(buffer, lent); shaves away excess memory */
+	temp = realloc(buffer, lent); /* shaves away excess memory */
 
-	write(1, buffer, lent); /* just like putchar */
+	write(1, temp, lent); /* just like putchar */
 
-	free(buffer);
+	free(temp);
 }
 
 
