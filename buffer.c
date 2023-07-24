@@ -17,6 +17,8 @@ char *make_buffer(void)
 	if (buffer == NULL)
 		return (NULL);
 
+	buffer[0] = '\0';
+
 	return (buffer);
 }
 

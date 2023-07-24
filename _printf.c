@@ -15,8 +15,7 @@ int _printf(const char *format, ...)
 	specifier id[] = {
 		{'c', print_c}, {'o', print_o}, {'s', print_s}, {'u', print_u},
 		{'d', print_d}, {'i', print_i}, {'x', print_x}, {'X', print_X},
-		{'S', print_S}, {'b', print_b}, {'R', print_R}, {'r', print_r}, {0, NULL}
-	};
+		{'S', print_S}, {'b', print_b}, {'R', print_R}, {'r', print_r}, {0, NULL} };
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0')
 	    || (format[0] == '%' && format[1] == ' '))
@@ -38,7 +37,6 @@ int _printf(const char *format, ...)
 					count += id[j].func(args);
 				j++;
 			}
-
 		}
 		else
 		{
