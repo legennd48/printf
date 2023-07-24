@@ -42,6 +42,10 @@ int print_S(va_list args)
 	int i = 0, count = 0;
 
 	s = va_arg(args, char *);
+	/* Handling "NULL" edge case */
+	if (!s[i])
+		s = "(null)";
+
 	while (s[i])
 	{
 		if (s[i] > 32 && s[i] < 127)

@@ -35,5 +35,6 @@ int print_u(va_list args);
 int print_o(va_list arg);
 int print_non_printable(unsigned char ascii);
 char *make_buffer(void);
+char *int_to_binary(unsigned int num);
 void putstring(char *buffer, int lent);
 #endif
