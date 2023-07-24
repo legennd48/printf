@@ -33,7 +33,7 @@ Here:
 			{
 				count += _putchar('%');
 				count += _putchar(format[i]);
-				i += 1
+				i += 1;
 				goto Here;
 			}
 			for (j = 0; id[j].type != 0; j++)
