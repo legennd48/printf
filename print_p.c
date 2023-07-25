@@ -6,6 +6,7 @@
  */
 #include "main.h"
 #include <stdarg.h>
+#include <stdlib.h>
 int print_p(va_list args)
 {
 	void *p;
@@ -37,24 +38,40 @@ int print_memory_address(void *p)
 {
 	unsigned long addr, mask, shift, digit;
 	int count = 0;
-	unsigned int i;
+	char *s;
+	unsigned int i, j;
+	int non_zero = 0;
 
+	if (p == NULL)
+	{
+		s = "(null)";
+		while (s[j])
+		{
+			count += _putchar(s[j]);
+			j++;
+		}
+		return (count);
+	}
 	mask = 0xF;
 	addr = (unsigned long)p;
-	shift = (sizeof(void *) * 2) - 4;
+	shift = (sizeof(void *) * 8) - 4;
 
 	count += _putchar('0');
 	count += _putchar('x');
 	for (i = 0; i < (sizeof(void *) * 2); i++)
 	{
-		digit = (addr >> shift) & mask;
-		if (digit < 10)
-			count += _putchar('0' + digit);
-		else
-			count += _putchar('a' + digit - 10);
+		digit = (addr >> (shift)) & mask;
+		if (digit != 0 || non_zero == 1)
+		{
+			if (digit < 10)
+				count += _putchar('0' + digit);
+			else
+				count += _putchar('a' + digit - 10);
+			non_zero = 1;
+		}
 		shift -= 4;
 	}
+	if (count == 2)
+		count += _putchar('0');
 	return (count);
 }
-
-
