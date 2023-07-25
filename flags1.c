@@ -1,53 +1,52 @@
 #include "main.h"
 #include <stdarg.h>
-
+#include <stdlib.h>
 /**
  * _itos - Convert an integer to a string
  * @num: The integer to be converted
- * @str: The buffer to store the result string
  * Return: Pointer to the result string
  */
-char *_itos(int num, char *str)
+char *_itos(int num)
 {
-	int i = 0, j, rem;
-	int isNeg = 0;
-	char temp;
+	int temp, len = 0, i, sign = 0;
+	long int n = num;
+	char *str;
 
-    /* Handle 0 explicitly, otherwise empty string is printed */
-	if (num == 0)
+	if (num == 0)/* Handle 0 explicitly, otherwise empty string is printed */
 	{
-		str[i++] = '0';
-		str[i] = '\0';
+		str = (char *)malloc(2);
+		str[0] = '0';
+		str[1] = '\0';
 		return (str);
 	}
-	/* Handle negative numbers */
-	if (num < 0)
+	if (n < 0)
 	{
-		isNeg = 1;
-		num = -num;
+		sign = 1; /* Record the negative sign */
+		n = -n; /* Convert the number to positive */
+		len++; /* Increment length to account for the negative sign */
 	}
-	/* Convert the number to a string in reverse order */
-	while (num != 0)
+	temp = n;
+	while (temp != 0)
 	{
-		rem = num % 10;
-		str[i++] = rem + '0';
-		num = num / 10;
+		temp /= 10;
+		len++;
 	}
-	/* Add the negative sign */
-	if (isNeg)
-		str[i++] = '-';
-	/* Add '\0' and reverse the string */
-	str[i] = '\0';
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	str[len] = '\0'; /* Null-terminate the string */
+	/* Fill the string from right to left with digits */
+	for (i = len - 1; i >= sign; i--)
+	{
+		str[i] = (n % 10) + '0';
+		n /= 10;
+	}
+	/* Add the negative sign if necessary */
+	if (sign)
+		str[0] = '-';
 
-	for (j = 0; j < i / 2; j++)
-	{
-		temp = str[j];
-		str[j] = str[i - 1 - j];
-		str[i - 1 - j] = temp;
-	}
 	return (str);
 }
-
 
 /**
  * print_ld - Print a long int number
@@ -57,10 +56,10 @@ char *_itos(int num, char *str)
 int print_ld(va_list args)
 {
 	long int num = va_arg(args, long int);
-	char buffer[22]; /* Buffer to hold the number as a string*/
+	char *buffer; /* Buffer to hold the number as a string*/
 	int count = 0;
 
-	_itos(num, buffer);
+	buffer = _itos(num);
 	while (buffer[count] != '\0')
 	{
 		_putchar(buffer[count]);
