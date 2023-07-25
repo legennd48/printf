@@ -13,12 +13,7 @@ int print_u(va_list args)
 	int count = 0;
 	unsigned int num = n, divisor = 1, digit;
 
-	/* Handle the special case of num being 0 - 9 */
-	if (num >= 1 && num <= 9)
-	{
-		_putchar(num + '0');
-		return (1);
-	}
+	/* Handle the special case of num being 0 */
 	if (num == 0)
 	{
 		_putchar('0');
@@ -53,12 +48,7 @@ int print_o(va_list args)
 	unsigned int num = va_arg(args, unsigned int), temp = num;
 	int count = 0, *holder, i;
 
-	/* Handle the special case of num being 0 - 9 */
-	if (num >= 1 && num <= 9)
-	{
-		_putchar(num + '0');
-		return (1);
-	}
+	/* Handle the special case of num being 0 */
 	if (num == 0)
 	{
 		_putchar('0');
