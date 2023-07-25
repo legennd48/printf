@@ -4,7 +4,6 @@
 /**
  * _itos - Convert an integer to a string
  * @num: The integer to be converted
- * @str: The buffer to store the result string
  * Return: Pointer to the result string
  */
 char *_itos(int num)
