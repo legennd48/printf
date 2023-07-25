@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
-
+#include <stdlib.h>
 /**
  * print_d - print a signed base 10 number
  * @args: va_list arguments
@@ -11,16 +11,16 @@
 int print_d(va_list args)
 {
 	int num = va_arg(args, int);
-	char buffer[12]; /* Buffer to hold the number */
+	char *buffer; /* Buffer to hold the number */
 	int count = 0;
 
-	_itos(num, buffer);
+	buffer = _itos(num);
 	while (buffer[count] != '\0')
 	{
 		_putchar(buffer[count]);
 		count++;
 	}
-
+	free(buffer);
 	return (count);
 }
 /**
