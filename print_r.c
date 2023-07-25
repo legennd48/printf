@@ -20,7 +20,7 @@ int print_r(va_list args)
 	if (tmp == NULL || tmp[0] == '\0')
 	{
 		write(1, n, _strlen(n));
-		_putchar('\n');
+		/*_putchar('\n');*/
 		free(s);
 		return (6);
 	}
