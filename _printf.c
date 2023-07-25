@@ -31,7 +31,7 @@ Here:
 			i += 1;
 			if (format[i] == '%')
 				count += _putchar('%');
-			else if (_strchr("cosudixXSbRr", format[i]) == NULL)
+			else if (_strchr("cosudixXSbRrp", format[i]) == NULL)
 			{
 				count += _putchar('%');
 				count += _putchar(format[i]);
