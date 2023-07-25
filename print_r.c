@@ -17,13 +17,14 @@ int print_r(va_list args)
 		return (-1);
 
 	tmp = va_arg(args, char *);
-	if (tmp == NULL || tmp[0] == '\0')
+	if (tmp == NULL)
 	{
 		write(1, n, _strlen(n));
-		/*_putchar('\n');*/
 		free(s);
 		return (6);
 	}
+	if (tmp[0] == '\0')
+		return (-1);
 	lent = _strlen(tmp);
 	while (lent > 0)
 	{
