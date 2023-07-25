@@ -38,7 +38,6 @@ int print_u(va_list args)
 
 	return (count);
 }
-
 /**
  * print_o - prints int in octal
  * @args: va_list args received
@@ -47,8 +46,11 @@ int print_u(va_list args)
 
 int print_o(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int), temp = num;
+	long int num = va_arg(args, long int), temp = num;
 	int count = 0, *holder, i;
+
+	if (num < 0)
+		return (-1);
 
 	/* special case: Handle the number 0 */
 	if (num == 0)
