@@ -16,7 +16,17 @@ int print_X(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
-	/* Find number of integers gotten during conversion */
+/* Handle the special case of num being 0 - 9 */
+	if (num >= 1 && num <= 9)
+	{
+		_putchar(num + '0');
+		return (1);
+	}
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}	/* Find number of integers gotten during conversion */
 	while (num / 16 != 0)
 	{
 		num /= 16;
@@ -25,7 +35,6 @@ int print_X(va_list args)
 	count++;
 	/* Use number of integers to allocate storage for conversion */
 	array = malloc(count * sizeof(int));
-
 	/* Conversion from decimal to hexadecimal */
 	for (i = 0; i < count; i++)
 	{
@@ -57,6 +66,17 @@ int print_x(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
+/* Handle the special case of num being 0 - 9 */
+	if (num >= 1 && num <= 9)
+	{
+		_putchar(num + '0');
+		return (1);
+	}
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	while (num / 16 != 0)
 	{
 		num /= 16;
