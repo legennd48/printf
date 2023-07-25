@@ -39,4 +39,9 @@ int print_memory_address(void *p);
 char *make_buffer(void);
 char *int_to_binary(unsigned int num);
 void putstring(char *buffer, int lent);
+int print_r(va_list args);
+char *_strchr(char *s, char c);
+int print_k(va_list args);
+int print_ld(va_list args);
+char *_itos(int num, char *str);
 #endif

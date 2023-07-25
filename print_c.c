@@ -17,3 +17,17 @@ int print_c(va_list args)
 
 	return (count);
 }
+
+/**
+ * print_k - Prints unknown specifier along with '%'
+ * @args: Argument list containing the specifier to be printed
+ * Return: Number of characters printed
+ */
+int print_k(va_list args)
+{
+	char c = va_arg(args, int);
+
+	_putchar('%');
+	_putchar(c);
+	return (2);
+}

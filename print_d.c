@@ -10,20 +10,19 @@
 
 int print_d(va_list args)
 {
-	int num = va_arg(args, int), count = 0;
+	int num = va_arg(args, int);
+	char buffer[12]; /* Buffer to hold the number */
+	int count = 0;
 
-	if (num < 0)
+	_itos(num, buffer);
+	while (buffer[count] != '\0')
 	{
-		/* Handle negative numbers: print '-' and convert to absolute value */
-		num = -num;
-		count += _putchar('-');
+		_putchar(buffer[count]);
+		count++;
 	}
-	/* Call print_num function to print the digits of the number */
-	count += print_num(num);
 
 	return (count);
 }
-
 /**
  * print_i - prints signed integer
  * @args: va_list argument
@@ -66,20 +65,5 @@ int print_num(int num)
 
 	count += _putchar('0' + num % 10);
 
-/*
-*	 Reverse the digits of the number
-*	while (num != 0)
-*	{
-*		rev_num = rev_num * 10 + num % 10;
-*		num /= 10;
-*	}
-*	 Print each digit by reversing the reversed number
-*	while (rev_num != 0)
-*	{
-*		 Print the digit
-*		count += _putchar('0' + rev_num % 10);
-*		rev_num /= 10;
-*	}
-*/
 	return (count);
 }
