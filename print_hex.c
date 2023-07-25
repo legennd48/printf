@@ -16,12 +16,8 @@ int print_X(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
-/* Handle the special case of num being 0 - 9 */
-	if (num >= 1 && num <= 9)
-	{
-		_putchar(num + '0');
-		return (1);
-	}
+/* Handle the special case of num being 0 */
+
 	if (num == 0)
 	{
 		_putchar('0');
@@ -66,12 +62,7 @@ int print_x(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
-/* Handle the special case of num being 0 - 9 */
-	if (num >= 1 && num <= 9)
-	{
-		_putchar(num + '0');
-		return (1);
-	}
+/* Handle the special case of num being 0 */
 	if (num == 0)
 	{
 		_putchar('0');
