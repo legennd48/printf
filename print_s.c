@@ -44,11 +44,11 @@ int print_S(va_list args)
 	s = va_arg(args, char *);
 	/* Handling "NULL" edge case */
 	if (!s[i])
-		s = "(null)";
+		s = " ";
 
 	while (s[i])
 	{
-		if (s[i] > 32 && s[i] < 127)
+		if (s[i] >= 32 && s[i] < 127)
 			count += _putchar(s[i]);
 		else
 		{
