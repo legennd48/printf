@@ -46,7 +46,7 @@ int print_u(va_list args)
 int print_o(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int), temp = num;
-	int count = 0, *holder, i;
+	int count = 0, *holder, i, rcount = 0;
 
 	/* Handle the special case of num being 0 */
 	if (num == 0)
@@ -61,6 +61,7 @@ int print_o(va_list args)
 		count++;
 	}
 	count++;
+	rcount = count;
 	holder = malloc(count * sizeof(int));
 	if (holder == NULL) /* Check if memory allocation is successful */
 		return (-1);
@@ -80,5 +81,5 @@ int print_o(va_list args)
 	/* Free the dynamically allocated memory */
 	free(holder);
 
-	return (count);
+	return (rcount);
 }
