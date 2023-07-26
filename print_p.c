@@ -17,7 +17,7 @@ int print_p(va_list args)
 
 	if (p == NULL)
 	{
-		s = "(null)";
+		s = "0x0";
 		while (s[i])
 		{
 			count += _putchar(s[i]);
