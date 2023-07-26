@@ -15,6 +15,8 @@ int print_d(va_list args)
 	int count = 0;
 
 	buffer = _itos(num);
+	if (buffer == NULL)
+		return (-1);
 	while (buffer[count] != '\0')
 	{
 		_putchar(buffer[count]);

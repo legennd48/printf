@@ -8,13 +8,15 @@
  */
 char *_itos(int num)
 {
-	int temp, len = 0, i, sign = 0;
 	long int n = num;
+	int temp = n, len = 0, i, sign = 0;
 	char *str;
 
 	if (num == 0)/* Handle 0 explicitly, otherwise empty string is printed */
 	{
 		str = (char *)malloc(2);
+		if (str == NULL)
+			return (NULL);
 		str[0] = '0';
 		str[1] = '\0';
 		return (str);
@@ -25,7 +27,6 @@ char *_itos(int num)
 		n = -n; /* Convert the number to positive */
 		len++; /* Increment length to account for the negative sign */
 	}
-	temp = n;
 	while (temp != 0)
 	{
 		temp /= 10;
@@ -44,7 +45,6 @@ char *_itos(int num)
 	/* Add the negative sign if necessary */
 	if (sign)
 		str[0] = '-';
-
 	return (str);
 }
 
@@ -60,6 +60,8 @@ int print_ld(va_list args)
 	int count = 0;
 
 	buffer = _itos(num);
+	if (buffer == NULL)
+		return (-1);
 	while (buffer[count] != '\0')
 	{
 		_putchar(buffer[count]);
