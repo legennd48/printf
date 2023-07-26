@@ -12,12 +12,10 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, j, count = 0;
-	specifier id[] = {
-		{'c', print_c}, {'o', print_o}, {'s', print_s}, {'u', print_u},
-		{'d', print_d}, {'i', print_i}, {'x', print_x}, {'X', print_X},
-		{'S', print_S}, {'b', print_b}, {'p', print_p}, {'R', print_R},
-		{'r', print_r}, {0, NULL}
-	};
+	specifier id[] = { {'c', print_c}, {'o', print_o}, {'s', print_s},
+			   {'u', print_u}, {'d', print_d}, {'i', print_i}, {'x', print_x},
+			   {'X', print_X}, {'S', print_S}, {'b', print_b}, {'p', print_p},
+			   {'R', print_R}, {'r', print_r}, {0, NULL} };
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0')
@@ -29,6 +27,8 @@ Here:
 		if (format[i] == '%')
 		{
 			i += 1;
+			while (format[i] == ' ')
+				i++;
 			if (format[i] == '%')
 				count += _putchar('%');
 			else if (_strchr("cosudixXSbRrp", format[i]) == NULL)
