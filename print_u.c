@@ -74,7 +74,8 @@ int print_o(va_list args)
 	/* Print the octal digits in reverse order */
 	for (i = count - 1; i >= 0; i--)
 	{
-		count += _putchar(holder[i] + '0');
+		_putchar(holder[i] + '0');
+		count++;
 	}
 	/* Free the dynamically allocated memory */
 	free(holder);
