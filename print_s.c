@@ -44,7 +44,7 @@ int print_S(va_list args)
 	s = va_arg(args, char *);
 	/* Handling "NULL" edge case */
 	if (!s[i])
-		s = " ";
+		s = "";
 
 	while (s[i])
 	{
