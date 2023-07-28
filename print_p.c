@@ -39,7 +39,7 @@ int print_memory_address(void *p)
 	unsigned long addr, mask, shift, digit;
 	int count = 0;
 	char *s;
-	unsigned int i, j;
+	unsigned int i, j = 0;
 	int non_zero = 0;
 
 	if (p == NULL)
