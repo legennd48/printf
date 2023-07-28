@@ -17,9 +17,9 @@ int print_r(va_list args)
 		return (-1);
 
 	tmp = va_arg(args, char *);
-	if (tmp == NULL || tmp[0] == '\0')
+	if (tmp == NULL)
 	{
-		putstring(n, 6);
+		write(1, n, 6);
 		free(s);
 		return (6);
 	}
@@ -32,6 +32,7 @@ int print_r(va_list args)
 	}
 
 	s[count] = '\0';
-	putstring(s, count);
+	write(1, s, count);
+	free(s);
 	return (count);
 }
